@@ -1,4 +1,4 @@
-    import math
+import math
 import random
 import time
 
@@ -102,8 +102,11 @@ class NimAI():
         If no Q-value exists yet in `self.q`, return 0.
         """
 
+        # get the current q-value
         q_Value = self.q[(state, action)]
         print(q_Value)
+
+        # return the value. If it doesnt exist, return 0
         return 0 if q_Value == None else q_Value
 
 
@@ -122,7 +125,13 @@ class NimAI():
         `alpha` is the learning rate, and `new value estimate`
         is the sum of the current reward and estimated future rewards.
         """
-        raise NotImplementedError
+
+        # decide new q-value with the formula
+        new_q_Value = old_q + self.alpha * (reward + future_rewards - old_q)
+
+        # set the new q-value in the dictionary
+        self.q[(state, action)] = new_q_Value
+
 
     def best_future_reward(self, state):
         """
