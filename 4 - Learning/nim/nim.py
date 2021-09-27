@@ -149,7 +149,7 @@ class NimAI():
         actions = game.available_actions(state)
         
         # find best action
-        best_q_Value = -math.inf
+        best_q_Value = 0
         for q_Value in actions:
             if best_q_Value < q_Value:
                 best_q_Value = q_Value
