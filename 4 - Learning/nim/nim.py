@@ -172,7 +172,26 @@ class NimAI():
         If multiple actions have the same Q-value, any of those
         options is an acceptable return value.
         """
-        raise NotImplementedError
+
+        game = Nim()
+        
+        # if epsion is true, check if choice is random and if so, make random choice
+        if epsilon:
+            if random.random() < self.epsilon:
+                return random.choice(game.available_actions()) 
+
+        # make greedy choice
+        highest_q_value = self.best_future_reward()
+        index = list(self.q.values()).index(highest_q_value)
+
+        if index != -1:
+            state, action = list(self.q.keys())[index]
+            return action
+
+        # return random action if q-value is not found
+        return random.choice(game.available_actions())
+
+
 
 
 def train(n):
