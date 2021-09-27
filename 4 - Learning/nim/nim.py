@@ -72,7 +72,7 @@ class Nim():
 
 class NimAI():
 
-    def __init__(self, alpha=0.5, epsilon=1):
+    def __init__(self, alpha=0.5, epsilon=0.1):
         """
         Initialize AI with an empty Q-learning dictionary,
         an alpha (learning) rate, and an epsilon rate.
@@ -151,18 +151,20 @@ class NimAI():
         actions = game.available_actions(state)
         
         # find best action
-        best_q_Value = 0
+        best_q_Value = -math.inf
         for action in actions:
             
             q_Value = 0
             try:
                 q_Value = self.q[(tuple(state), action)]
+                if best_q_Value < q_Value:
+                    best_q_Value = q_Value
             except (KeyError):
-                q_Value = 0
+                pass
 
-            if best_q_Value < q_Value:
-                best_q_Value = q_Value
-        
+        if math.isinf(best_q_Value):
+            return 0
+
         return best_q_Value
 
 
@@ -208,10 +210,6 @@ class NimAI():
                 best_action = action    
 
             return best_action   
-
-        
-
-
 
 def train(n):
     """
