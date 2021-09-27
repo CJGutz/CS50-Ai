@@ -103,11 +103,14 @@ class NimAI():
         """
 
         # get the current q-value
-        q_Value = self.q[(state, action)]
-        print(q_Value)
+        q_Value = 0
+        try:
+            q_Value = self.q[(tuple(state), action)]
+        except (KeyError):
+            q_Value = 0
 
         # return the value. If it doesnt exist, return 0
-        return 0 if q_Value == None else q_Value
+        return q_Value
 
 
     def update_q_value(self, state, action, old_q, reward, future_rewards):
@@ -130,8 +133,9 @@ class NimAI():
         new_q_Value = old_q + self.alpha * (reward + future_rewards - old_q)
 
         # set the new q-value in the dictionary
-        self.q[(state, action)] = new_q_Value
+        self.q[(tuple(state), action)] = new_q_Value
 
+        print(self.q[(tuple(state), action)])
 
     def best_future_reward(self, state):
         """
@@ -150,7 +154,14 @@ class NimAI():
         
         # find best action
         best_q_Value = 0
-        for q_Value in actions:
+        for action in actions:
+            
+            q_Value = 0
+            try:
+                q_Value = self.q[(tuple(state), action)]
+            except (KeyError):
+                q_Value = 0
+
             if best_q_Value < q_Value:
                 best_q_Value = q_Value
         
@@ -174,23 +185,33 @@ class NimAI():
         """
 
         game = Nim()
+        actions = game.available_actions(state)
         
         # if epsion is true, check if choice is random and if so, make random choice
         if epsilon:
             if random.random() < self.epsilon:
-                return random.choice(game.available_actions()) 
+                return random.choice(list(actions)) 
 
         # make greedy choice
-        highest_q_value = self.best_future_reward()
-        index = list(self.q.values()).index(highest_q_value)
+        highest_q_Value = self.best_future_reward(state)
 
-        if index != -1:
-            state, action = list(self.q.keys())[index]
-            return action
+        # find best action
 
-        # return random action if q-value is not found
-        return random.choice(game.available_actions())
+        best_action = random.choice(list(actions))
+        for action in actions:
 
+            q_Value = 0
+            try:
+                q_Value = self.q[(tuple(state), action)]
+            except (KeyError):
+                q_Value = 0 
+
+            if highest_q_Value == q_Value:
+                best_action = action    
+
+            return action   
+
+        
 
 
 
