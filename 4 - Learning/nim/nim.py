@@ -1,4 +1,4 @@
-import math
+    import math
 import random
 import time
 
@@ -101,7 +101,11 @@ class NimAI():
         Return the Q-value for the state `state` and the action `action`.
         If no Q-value exists yet in `self.q`, return 0.
         """
-        raise NotImplementedError
+
+        q_Value = self.q[(state, action)]
+        print(q_Value)
+        return 0 if q_Value == None else q_Value
+
 
     def update_q_value(self, state, action, old_q, reward, future_rewards):
         """
