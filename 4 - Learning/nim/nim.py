@@ -72,7 +72,7 @@ class Nim():
 
 class NimAI():
 
-    def __init__(self, alpha=0.5, epsilon=0.1):
+    def __init__(self, alpha=0.5, epsilon=1):
         """
         Initialize AI with an empty Q-learning dictionary,
         an alpha (learning) rate, and an epsilon rate.
@@ -134,8 +134,6 @@ class NimAI():
 
         # set the new q-value in the dictionary
         self.q[(tuple(state), action)] = new_q_Value
-
-        print(self.q[(tuple(state), action)])
 
     def best_future_reward(self, state):
         """
@@ -209,7 +207,7 @@ class NimAI():
             if highest_q_Value == q_Value:
                 best_action = action    
 
-            return action   
+            return best_action   
 
         
 
