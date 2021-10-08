@@ -58,7 +58,30 @@ def load_data(data_dir):
     be a list of integer labels, representing the categories for each of the
     corresponding `images`.
     """
-    raise NotImplementedError
+
+    images = list()
+    labels = list()
+
+    # get directory
+    path = os.path.join(".","gtsrb",data_dir)
+    directory = os.listdir(path)
+
+    # loop over all images in directory
+    for imageString in directory:
+
+        # get image
+        imagePath = os.path.join(path, imageString)
+        image = cv2.imread(imagePath)
+
+        # resize image
+        image = cv2.resize(image, (IMG_WIDTH, IMG_HEIGHT))
+        
+        # add to images and to labels
+        images.append(image)
+        label = int(imageString[:5])
+        labels.append(label)
+
+    return (images, labels)
 
 
 def get_model():
