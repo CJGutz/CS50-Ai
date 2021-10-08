@@ -3,6 +3,9 @@ import numpy as np
 import os
 import sys
 import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Dense, Flatten, Conv2D, MaxPooling2D
 
 from sklearn.model_selection import train_test_split
 
@@ -62,24 +65,30 @@ def load_data(data_dir):
     images = list()
     labels = list()
 
-    # get directory
-    path = os.path.join(".","gtsrb",data_dir)
-    directory = os.listdir(path)
+    path = os.path.join(".", data_dir)
+    categories = os.listdir(path)
 
-    # loop over all images in directory
-    for imageString in directory:
+    for category in categories:
 
-        # get image
-        imagePath = os.path.join(path, imageString)
-        image = cv2.imread(imagePath)
+        # get directory
+        path = os.path.join(".",data_dir,category)
+        directory = os.listdir(path)
 
-        # resize image
-        image = cv2.resize(image, (IMG_WIDTH, IMG_HEIGHT))
+        # loop over all images in directory
+        for imageString in directory:
+
+            # get image
+            imagePath = os.path.join(path, imageString)
+            image = cv2.imread(imagePath)
+
+            # resize image
+            image = cv2.resize(image, (IMG_WIDTH, IMG_HEIGHT))
         
-        # add to images and to labels
-        images.append(image)
-        label = int(imageString[:5])
-        labels.append(label)
+            # add to images and to labels
+            images.append(image)
+            label = int(category)
+            labels.append(label)
+
 
     return (images, labels)
 
@@ -90,7 +99,23 @@ def get_model():
     `input_shape` of the first layer is `(IMG_WIDTH, IMG_HEIGHT, 3)`.
     The output layer should have `NUM_CATEGORIES` units, one for each category.
     """
-    raise NotImplementedError
+
+    model = Sequential()
+
+
+    model.add(Conv2D(32, (3, 3), activation="relu", input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)))
+    model.add(MaxPooling2D(pool_size=(2,2)))
+    model.add(Conv2D(64, (3, 3), activation="relu"))
+    model.add(MaxPooling2D(pool_size=(2,2)))
+    model.add(Flatten())
+    model.add(Dense(NUM_CATEGORIES, activation = "softmax"))
+
+
+    model.compile(optimizer='adam', 
+                  loss= "categorical_crossentropy",
+                  metrics=["accuracy"])
+
+    return model
 
 
 if __name__ == "__main__":
