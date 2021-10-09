@@ -39,3 +39,8 @@
     accuracy testing: 0.0556
 
 # config 7 - set conv testing to 32 and 64
+
+    accuracy training: 0.0571
+    accuracy testing: 0.0551
+
+# config 8 - set conv testing to 32 and 16 
