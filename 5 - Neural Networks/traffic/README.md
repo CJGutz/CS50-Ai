@@ -29,3 +29,8 @@
     accuracy testing: 0.7374
 
 # config 5 - 1st conv testing size to 32
+
+    accuracy training: 0.7973
+    accuracy testing: 0.7792
+
+# config 6 - 1st conv testing to 50 and 2nd conv testing size to 50
