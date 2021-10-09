@@ -15,3 +15,7 @@
 
 # config 2 - changing 2nd poolsize to (2,2)
 
+    accuracy training: 0.0557 
+    accuracy testing: 0.0498
+
+# config 3 - back to config 1 and changing 1st conv to (3,3)
