@@ -104,7 +104,7 @@ def get_model():
 
 
     model.add(Conv2D(20, (3, 3), activation="relu", input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)))
-    model.add(MaxPooling2D(pool_size=(2,2)))
+    model.add(MaxPooling2D(pool_size=(3, 3)))
     model.add(Conv2D(20, (3, 3), activation="relu"))
     model.add(MaxPooling2D(pool_size=(3, 3)))
     model.add(Flatten())
