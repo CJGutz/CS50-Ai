@@ -108,7 +108,7 @@ def get_model():
     model.add(Conv2D(20, (3, 3), activation="relu"))
     model.add(MaxPooling2D(pool_size=(3, 3)))
     model.add(Flatten())
-    model.add(Dense(20, activation = "relu"))
+    model.add(Dense(5, activation = "relu"))
     model.add(Dense(NUM_CATEGORIES, activation = "softmax"))
 
 
