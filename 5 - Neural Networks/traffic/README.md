@@ -53,4 +53,9 @@
     accuracy training: 0.4227
     accuracy testing: 0.5199
 
-# config10 - 1st dense to 5 units
+# config 10 - 1st dense to 5 units
+
+    accuracy training: 0.0591
+    accuracy testing: 0.0521
+
+# config 11 - 1st dense to 10 (same as config 5)
