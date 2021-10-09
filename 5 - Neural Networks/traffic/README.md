@@ -20,7 +20,12 @@
 
 # config 3 - back to config 1 and changing 1st conv to (3,3)
 
-    accuracy traing: 0.535
+    accuracy traing: 0.0535
     accuracy testing: 0.0503
 
 # config 4 - 1st pool to (3,3)
+
+    accuracy traing: 0.7704
+    accuracy testing: 0.7374
+
+# config 5 - 1st conv testing size to 32
