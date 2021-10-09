@@ -43,4 +43,9 @@
     accuracy training: 0.0571
     accuracy testing: 0.0551
 
-# config 8 - set conv testing to 32 and 16 
+# config 8 - set conv testing to 32 and 16
+
+    accuracy training: 0.0566
+    accuracy testing: 0.0559
+
+# config 9 - set conv to 32 and 20 and and 1st dense to 20 units
