@@ -59,3 +59,8 @@
     accuracy testing: 0.0521
 
 # config 11 - 1st dense to 10 (same as config 5)
+
+    accuracy training: 0.0600
+    accuracy testing: 0.0586
+
+# config 12 - Adding dropout of 0.5 after 1st dense
