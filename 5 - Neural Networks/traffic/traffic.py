@@ -110,6 +110,7 @@ def get_model():
     model.add(Flatten())
     model.add(Dense(NUM_CATEGORIES * 8, activation = "relu"))
     model.add(Dropout(0.5))
+    model.add(Dense(NUM_CATEGORIES * 4, activation = "relu"))
     model.add(Dense(NUM_CATEGORIES, activation = "softmax"))
 
 

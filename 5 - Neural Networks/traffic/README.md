@@ -67,3 +67,10 @@
 
     accuracy training: 0.1868
     accuracy testing: 0.2962
+
+# config 13 - 1st dense to havae Num-categories * 8 units
+
+    accuracy training: 0.8105
+    accuracy testing: 0.8331
+
+# config 14 - Added another desne layer with num-categories * 4 units
