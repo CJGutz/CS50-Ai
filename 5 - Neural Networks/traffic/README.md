@@ -80,5 +80,7 @@
 
 # config 15 - Added another dense layer with num-catoegories * 16 units with dropout
 
+    accuracy training: 0.8611
+    accuracy testing: 0.8640
 
-
+# config 16 - Added forgotten dropout from former config
