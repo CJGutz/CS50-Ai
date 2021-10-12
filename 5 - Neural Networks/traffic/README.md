@@ -89,3 +89,8 @@
     accuracy testing: 0.8600
 
 # config 17 - Deleted 2nd conv and pool
+
+    accuracy training: 0.8500
+    accuracy testing: 0.9237
+
+# config 18 - conv to size (4,4)
