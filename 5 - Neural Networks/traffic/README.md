@@ -74,3 +74,11 @@
     accuracy testing: 0.8331
 
 # config 14 - Added another desne layer with num-categories * 4 units
+
+    accuracy training: 0.8321
+    accuracy testing: 0.8794
+
+# config 15 - Added another dense layer with num-catoegories * 16 units with dropout
+
+
+
