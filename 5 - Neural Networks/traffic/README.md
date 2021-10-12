@@ -84,3 +84,8 @@
     accuracy testing: 0.8640
 
 # config 16 - Added forgotten dropout from former config
+
+    accuracy training: 0.8244
+    accuracy testing: 0.8600
+
+# config 17 - Deleted 2nd conv and pool

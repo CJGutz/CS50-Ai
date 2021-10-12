@@ -105,8 +105,6 @@ def get_model():
 
     model.add(Conv2D(32, (3, 3), activation="relu", input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)))
     model.add(MaxPooling2D(pool_size=(3, 3)))
-    model.add(Conv2D(20, (3, 3), activation="relu"))
-    model.add(MaxPooling2D(pool_size=(3, 3)))
     model.add(Flatten())
     model.add(Dense(NUM_CATEGORIES * 16, activation="relu"))
     model.add(Dropout(0.5))
