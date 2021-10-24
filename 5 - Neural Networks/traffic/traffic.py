@@ -34,6 +34,9 @@ def main():
     # Get a compiled neural network
     model = get_model()
 
+    # get previous model
+    model = tf.keras.models.load_model(os.path.join(".","model"))
+
     # Fit model on training data
     model.fit(x_train, y_train, epochs=EPOCHS)
 

@@ -99,3 +99,8 @@
     accuracy testing: 0.9103
 
 # config 19 - antoher conv after pool and both conv sizes to (3, 3)
+
+    accuracy training: 0.9173
+    accuracy testing: 0.9572
+    accuracy training2: 0.9322
+    accuracy testing2: 0.9600
