@@ -10,6 +10,7 @@ Because my computer doesn't have a lot of processing power it take up to 10 minu
 a new configuration. If this wasn't the case I could probably run more and get a better result.
 My best score on testing was 0.96 on configuration 20 which I am happy with.
 
+youtube-link: https://youtu.be/znbV6ocEqRk
 
 # Neural network configurations
 
